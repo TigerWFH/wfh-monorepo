@@ -5,7 +5,7 @@ import { terser } from "rollup-plugin-terser";
 import pkg from "./package.json"
 
 export default {
-    input: "src/mouse.js",
+    input: "src/mouse.tsx",
     output: [
         {
             file: pkg.main,

@@ -5,7 +5,7 @@ import { terser } from "rollup-plugin-terser";
 import pkg from "./package.json"
 
 export default {
-    input: "src/mouse.js",
+    input: "src/mouse.tsx",
     output: [
         {
             file: pkg.main,
@@ -19,7 +19,7 @@ export default {
         },
         {
             name: "index",
-            file: pkg.main,
+            file: pkg.browser,
             format: "umd",
             sourcemap: true,
             globals: {
@@ -36,6 +36,6 @@ export default {
         typescript(),
         commonjs(),
         nodeResolve(),
-        terser()
+        // terser()
     ]
 }
