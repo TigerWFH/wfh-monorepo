@@ -1,32 +1,29 @@
-# lerna命令
+# lerna
 
-# 设置lerna项目共用顶层的node_modules
-```js
-    // lerna.json
-    {
-        "npmClient": "yarn",
-        "useWorkspaces": true
-    }
-    // package.json
-    {
-        "workspaces": [
-            "packages/*"
-        ]
-    }
-    // 类似 lerna bootstrap -use-workspaces
-```
-# lerna create：添加模块
-# lerna add: 该命令不会再根目录的package.json写入依赖记录，需要直接使用yarn命令
-```js
-/**
- * 用yarn workspace特性替代lerna bootstrap
- * 安装所有依赖：yarn
- * 
- * 根（项目）目录安装依赖：yarn add -D -W <packageName>，使用workspace模式安装必须使用-W参数
- * 
- * 给package安装外部依赖包：yarn workspace package/name add  XXX 
- * 给package安装内部依赖包：yarn workspace package/name add XXX(依赖当前monorepo中的包)
- *  
- * 清除依赖：lerna clean && rm -rf ./node_modules
- **/ 
-```
+- lerna 默认使用 npm workspaces
+- lerna 有自己的依赖处理方案：lerna bootstrap，被弃用。引入初衷是因为 npm 等包管理工具最初没有 workspaces 概念
+- lerna 由 Nx 驱动，可以通过 npx nx graph 查看依赖图
+
+## lerna 命令
+
+- `npx nx graph`to open the visualization
+- `npx lerna run build`to build all projects
+- `npx lerna run test`to test all projects
+- `npx lerna add-caching`config workspaces
+- `npx lerna test --scope=projectName`to test projectName
+- `npx lerna publish --no-private`自带发包命令
+- `lerna version`
+- `lerna list`
+- `lerna changed`
+- `lerna diff`
+- `lerna exec`
+- `lerna run`
+- `lerna init`
+- `lerna add`
+- `lerna clean`
+- `lerna import`
+- `lerna link`
+- `lerna create`
+- `lerna repair`
+- `lerna watch`
+- ``
