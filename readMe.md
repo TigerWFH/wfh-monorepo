@@ -19,11 +19,34 @@
 - `lerna exec`
 - `lerna run`
 - `lerna init`
-- `lerna add`
+- `lerna add`lerna add <package>[@version] [--dev] [--exact] [--peer]
+  > add package as dependency to packages in the current lerna repo,only one dependency can be added
+  >
+  > --dev, --exact, --peer, --registry <url>, --no-bootstrap
+  ```shell
+  lerna add module-1 packages/prefix-*
+  lerna add module-1 --scope=module-2
+  lerna add module-1 --scope=module-2 --peer
+  lerna add module-1
+  <!-- Install babel-core in all modules -->
+  lerna add babel-core
+  ```
 - `lerna clean`
 - `lerna import`
 - `lerna link`
-- `lerna create`
+- `lerna create`lerna create <name> [loc]
+  > create a new lerna-managed package
 - `lerna repair`
 - `lerna watch`
 - ``
+
+### lerna 选项
+
+- `--scope <glob>`：
+- `--ignore <glob>`：
+- `--no-private <glob>`：
+- `--since <glob>`：
+- `--exlude-dependents`：
+- `--include-dependents`：
+- `--include-dependencies`：
+- `--include-merged-tags`：
